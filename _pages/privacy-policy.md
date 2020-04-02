@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 
+title: 隐私政策
 ---
 # 隐私政策
 

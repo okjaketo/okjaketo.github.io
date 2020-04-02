@@ -47,7 +47,6 @@ ARC 全称 Automatic Reference Counting，中文译名为：自动引用计数�
     self.somefunc()
 }
 ```
-<br/>
 
 这种做法的名称为 Weak-Strong Dance，从而就保证了对象在执行过程中不会被释放。
 

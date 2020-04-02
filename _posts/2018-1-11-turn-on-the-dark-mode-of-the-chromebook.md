@@ -3,7 +3,6 @@ layout: post
 title: 开启 Chromebook 的夜间模式
 image: '/images/开启 Chromebook 的夜间模式.jpg'
 ---
-<br/>
 
 文：Tom Westrick，译：木土金王可，校对：木土金王可，原文：[www.androidcentral.com/how-enable-night-light-chrome-os](www.androidcentral.com/how-enable-night-light-chrome-os)，本文基于创作共同协议（BY-NC），由木土金王可在木土金王可发布。
 

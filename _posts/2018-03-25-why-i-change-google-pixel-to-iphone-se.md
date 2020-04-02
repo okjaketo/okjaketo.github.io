@@ -3,7 +3,6 @@ layout: post
 title: 为什么我会把 Googel Pixel 换成 iPhone SE ？
 image: '/images/为什么我会把 Googel Pixel 换成 iPhone SE ？.jpg'
 ---
-<br/>
 
 于我而言，Google Pixel 从硬件、系统、到设计，每一处都无可挑剔，堪称顶级，是我用过最棒的安卓手机。再用过 Pixel 后，我再也不想去用其他厂商的安卓手机。但之所以不再使用 Pixel，主要是基于以下考量：
 

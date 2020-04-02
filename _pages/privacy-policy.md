@@ -2,6 +2,7 @@
 layout: page
 title: 隐私政策
 ---
+# 隐私政策
 
 我深知个人信息对您的重要性，并会尽全力保护您的个人信息安全可靠。我致力于维持您对我的信任，恪守以下原则，保护您的个人信息：权责一致原则、目的明确原则、选择同意原则、最少够用原则、确保安全原则、主体参与原则、公开透明原则等。
 
@@ -22,6 +23,8 @@ title: 隐私政策
 <br/>
 <br/>
 
+# Privacy Policy
+
 I understand the importance of personal information to you and will do my utmost to protect your personal information. I am committed to maintaining your trust in me, and abide by the following principles to protect your personal information: the principle of consistency of powers and responsibilities, the principle of clear objectives, the principle of choice and consent, the principle of minimum sufficient use, the principle of ensuring security, the principle of subject participation, the principle of openness and transparency, etc. .
 
 Please read and understand this Privacy Policy before using our products (or services).
@@ -30,7 +33,7 @@ Please read and understand this Privacy Policy before using our products (or ser
 
 I will not collect your personal information and all your personal information will be stored locally.
 
-### 2. How to update this privacy policy
+### II. How to update this privacy policy
 I may make adjustments or changes to this Privacy Policy in due course. Any updates to this Privacy Policy will be posted on our website in the form of an update time, subject to adjustments or changes, except as otherwise required by laws, regulations or regulatory requirements. Effective 7 days after notification or publication. If you continue to use any of our services or visit our related websites after the privacy policy has been adjusted or changed, we believe that this means that you have fully read, understood and accepted the revised Privacy Policy and are bound by it.
 
 ### III. How to contact me

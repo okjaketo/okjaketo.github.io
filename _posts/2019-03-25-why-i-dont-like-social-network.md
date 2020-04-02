@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 为什么我不喜欢社交网络
 image: '/images/为什么我不喜欢社交网络.jpg'
 ---

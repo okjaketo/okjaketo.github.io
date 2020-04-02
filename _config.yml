@@ -10,11 +10,10 @@ title:       木土金王可
 description: ''
 baseurl:     '' # The subpath of your site, e.g. /blog
 url:         'https://dujinke.com/' # The base hostname & protocol for your site
-email:       ''
-twitter:     ''
-github:      ''
-instagram:   ''
-facebook:    ''
+email:       'okjaketo@gmail.com'
+twitter:     'okjaketo'
+instagram:   'okjaketo'
+youtube:    'okjaketo'
 
 markdown:  kramdown
 permalink: pretty

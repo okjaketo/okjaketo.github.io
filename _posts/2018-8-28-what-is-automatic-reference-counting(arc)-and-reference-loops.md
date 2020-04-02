@@ -40,7 +40,6 @@ ARC 全称 Automatic Reference Counting，中文译名为：自动引用计数�
 解决这个这个问题的方式就是，在闭包内部使用 `[unowned self] in` 语句，这样就将闭包内部对对象的引用变为弱引用。但是需要注意的是，如果在调用闭包的时候，对象已经被释放的话，会出现错误。或者是使用 `[weak self] in` 语句，那在闭包内部的 self 将变为可选值。
 
 但是这样仍然没有解决在调用闭包时，对象被释放的错误，想要解决这个错误就需要在闭包内部将对对象的应用重新变为强引用，而避免对象在执行过程中被释放。
-
 ```swift
 …{ [weak self] in 
     guard let self = self else { return } 

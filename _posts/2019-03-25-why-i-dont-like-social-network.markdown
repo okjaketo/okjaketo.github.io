@@ -19,4 +19,4 @@ image: '/images/为什么我不喜欢社交网络.jpg'
 信息的碎片化体现在诸如微博、脸书等等，首先是字数限制使其无法承载足够全面有深度的内容来促进大脑思考，而且信息资讯源源不断，总有新东西涌现出来转移注意力……，总的来说，长时间沉溺在社交网络碎片化的信息中，会浪费时间并且让大脑变得懒惰。
 
 ### 引申阅读
-[为什么我不喜欢即时通讯](https://east-bladder.com/why-i-dont-like-instant-messaging/)
+[为什么我不喜欢即时通讯](https://dujinke.com/2018/12/25/why-i-dont-like-instant-messaging/)

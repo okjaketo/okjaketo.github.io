@@ -38,6 +38,7 @@ override func viewDidLoad() {
 ```swift
 private var qualifiedString = ""
 ```
+
 该变量用来暂存`textField`中的符合条件的内容，当`textField`中所输入的内容符合条件时，我们不对`textField`进行输入限制，并同时将`textField`中的内容赋值给`qualifiedString`，而当`textField`中所输入的内容不符合条件时，对`textField`的输入进行限制，即用户输入无效，并将`qualifiedString`作为`textField`中的内容保持不变。`textFieldDidEdit()`方法完整代码如下：
 ```swift
 @objc private func textFieldDidEdit() {
@@ -59,9 +60,12 @@ private var qualifiedString = ""
     }
 }
 ```
+
 接下来我将一步步解释这些代码的作用：
 1. 判断`textField`是否存在高亮区域，即当用户使用拼音等输入法进行输入时，还没有确定输入选词，拼写时的产生英文不算入输入内容。
+
 2. 判断`textField`中是否有内容，只有当`textField`中存在内容时代码才会继续运行。
+
 3. 代码运行到这里将会报错，因为我们还未定义`isIncludeSpecialCharacters(in: String)`与`isBeyondNumberOfMaxInput(in: String)`方法，后文将会介绍这些的方法的定义以及实现。这段代码会判断`textField`中是否包含特殊字符，或者`textField`中的内容长度是否超过所定义的最大输入数量，如果`textField`中的内容满足上述任意条件，则`qualifiedString`替代`textField`中的内容；否则视`textField`中的内容符合条件，并对`qualifiedString`赋值。
 
 ### 处理特殊字符

@@ -15,7 +15,6 @@ image: '/images/Develop.jpg'
 ```swift
 UserDefaults.standard.set(”Hello“, forKey: “helloString”)
 ```
-
 而如果准备将储存的数据在主程序（Container）和其他扩展（Extensions）之间传递，则需要在 `UserDefaults` 中添加 `Group` 字符串：
 ```swift
 UserDefaults.init(suiteName: “group.com.xxx.xxx”)?.set(“hello”, forKey: “helloString”)
@@ -31,7 +30,6 @@ let helloStr = UserDefaulte.standard.object(forKey: “helloString”)
 print(helloStr)
 // Output: Hello
 ```
-
 同样在其他扩展（Extensions）中，也需要添加 `Group` 字符串，才能加载相应数据。
 ```swift
 let helloString = UserDefaults.init(suiteName: “group.com.xxx.xxx”)?.value(forKey: “helloString”)

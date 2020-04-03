@@ -31,9 +31,7 @@ func dataDocumentsDirectory() -> URL {
     return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
 }
 ```
-
 此方法的目的是构建存储数据的文件的路径。此方法没有标准名称，您可以使用任何您喜欢的名称。
-
 ```swift
 func dataFilePath() -> URL {
     return dataDirectory().appendingPathComponent("SomeName.plist")
@@ -43,15 +41,12 @@ func dataFilePath() -> URL {
 
 ### 将数据储存至文件
 接下来的方法会将任何的数据内容，转换为二进制数据，然后写入该存储数据文件。首先需要创建一个 `PropertyListEncoder` 的实例：`encoder`，该实例会将要存储的任何数据编码成某种可以写入该文件的二进制数据格式。
-
 ```swift
 func saveData(_ anyData: anyType) {
     let encoder = PropertyListEncoder()
 }
 ```
-
 但是，如果编码方法由于某种原因无法对数据进行编码，则会引发错误。例如，数据不是预期的格式，或者已损坏等。幸运的是，Swift 通过抛出错误来处理某些条件下的错误。在这种情况下，您需要一段代码来捕获错误并进行处理。`do`关键字表示有可能抛出错误的代码块的开始。`try`关键字表示代码所执行的任务可能失败，如果发生这种情况，它将抛出错误。 `catch`语句表示捕获所抛出的错误的代码块，`do`代码块中的任何代码抛出的错误都将被捕获，并执行相应的代码。在这里，我们只是简单地将错误打印到 Xcode 控制台。
-
 ```swift
 func saveData(_ anyData: anyType) {
     let encoder = PropertyListEncoder()
@@ -63,7 +58,6 @@ func saveData(_ anyData: anyType) {
 }
 ```
 如果数据被上一个方法成功编码，则使用 `dataFilePath()` 调用存储文件的路径，将数据写入该文件。写入方法也会导致错误，所以你必须在方法调用之前使用另一个`try`语句。
-
 ```swift
 func saveData(_ anyData: anyType) {
     let encoder = PropertyListEncoder()

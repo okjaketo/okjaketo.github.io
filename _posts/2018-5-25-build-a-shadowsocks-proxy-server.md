@@ -101,17 +101,17 @@ image: '/images/搭建 Shadowsocks 代理服务器.jpg'
 ### 3. 使用命令行部署 VPS
 在这里我们使用秋水逸冰大神的 [Shadowsocks 一键安装脚本](https://teddysun.com/486.html)，将下列三条语句分别复制粘贴到（在命令行中点击鼠标右键，选择 **Paste** 进行粘贴） Xshell 的命令行中，再按下键盘上的 **Enter** （回车键）按钮，一条语句执行完后在复制另一条进去。
 
-{% highlight %}
+```
 wget — no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
-{% endhighlight %}
+```
 
-{% highlight %}
+```
 chmod +x shadowsocks-all.sh
-{% endhighlight %}
+```
 
-{% highlight %}
+```
 ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
-{% endhighlight %}
+```
 
 执行完后会出现如图所示的代码，这时候以从键盘输入数字 1（选择安装 Python 版）为例。
 
@@ -144,23 +144,23 @@ chmod +x shadowsocks-all.sh
 
 安装 **Google BBR**（BBR 官方项目地址：<https://github.com/google/bbr> ）加速算法可以大幅提升使用 Shadowsocks 时的速度，具体操作和开始部署 VPS 时一样，用 Xshell 连接上服务器，在命令行中分别执行以下三条语句：
 
-{% highlight %}
+```
 Wget–no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh
-{% endhighlight %}
+```
 
-{% highlight %}
+```
 chmod +x bbr.sh
-{% endhighlight %}
+```
 
-{% highlight %}
+```
 ./bbr.sh
-{% endhighlight %}
+```
 
 安装成功后执行：
 
-{% highlight %}
+```
 lsmod | grep bbr
-{% endhighlight %}
+```
 
 如果返回值为 **tcp_bbr** ，即说明 bbr 已安装成功，并且启动正常。
 

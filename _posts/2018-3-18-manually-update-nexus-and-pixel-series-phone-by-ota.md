@@ -52,8 +52,7 @@ OTA 全称 Over-the-air programming，意为空中编程，是一种为设备分
 
 2. 在命令行中运行这条语句：
 
-```
-adb reboot recovery
+```adb reboot recovery
 ```
 
 现在设备会处于恢复模式（Recovery mode），屏幕上应该显示带有红色感叹号的 Android 图标或机器人。
@@ -62,16 +61,14 @@ adb reboot recovery
 
 4. 在命令行中运行这条语句：
 
-```
-adb devices
+```adb devices
 ```
 
 然后在命令行中，您的设备名称旁边会显示“ sideload ”。
 
 5. 在命令行中运行这条语句：
 
-```
-adb sideload ota_file.zip
+```adb sideload ota_file.zip
 ```
 
 更新完成后，选择**立即重启（Reboot system now）**。

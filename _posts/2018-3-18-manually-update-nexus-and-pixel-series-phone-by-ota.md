@@ -70,9 +70,9 @@ adb devices
 
 5. 在命令行中运行这条语句：
 
-```
-    adb sideload ota_file.zip
-```
+{% highlight js %}
+adb sideload ota_file.zip
+{% endhighlight %}
 
 更新完成后，选择**立即重启（Reboot system now）**。
 

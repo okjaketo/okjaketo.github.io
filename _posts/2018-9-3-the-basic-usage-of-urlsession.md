@@ -30,7 +30,6 @@ image: '/images/Develop.jpg'
 ## 组装 URL
 
 在进行任何一项网络请求时，都需要配置 URL，苹果提供 `URLComponents` 以供开发者配置 URL。比起使用纯字符串形式的 URL，用这种方式可以根据 URLComponents 值的内容轻松获取 URL 值，反之亦然。
-
 ```swift
 func makeURL() -> URL {
     var components = URLComponents()
@@ -51,7 +50,6 @@ func makeURL() -> URL {
 ## 发起 GET 请求
 
 发起 GET 请求时，必须先创建 `URLSessionTask` 对象和获取 URL 地址。为防止重复发起请求，可在 `dataTask` 的调用 `.resume()` 方法开始每次任务前，调用 `.cancel()` 方法。
-
 ```swift
 func getRequest() {
     var dataTask: URLSessionTask?
@@ -75,7 +73,6 @@ func getRequest() {
 ## 发起 POST 请求
 
 与发起 GET 请求的不同在于，需要指定 `URLRequest` 的请求类型，并且设置 POST 的内容。
-
 ```swift
 func postRequest() {
     ......
@@ -99,9 +96,7 @@ func postRequest() {
 
 ## 开始下载
 ### 发起简单的下载任务
-
 如果不需要获取下载进度，可以就像之前发起 POST 请求时那样调用下载任务的方法：
-
 ```swift
 func postRequest() {
     ......
@@ -116,9 +111,7 @@ func postRequest() {
 ```
 
 ### 开始下载任务
-
 如果需要监听和及时更新下载进度，那就需要用到 `URLSessionDownloadDelegate`。而引入 `URLSessionDownloadDelegate` 必须要实现的方法是 `urlSession(_:downloadTask:didFinishDownloadingTo:)`，该方法会在下载任务执行完成后被调用。
-
 ```swift
 extension DownloadViewController: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) { 
@@ -127,27 +120,21 @@ extension DownloadViewController: URLSessionDownloadDelegate {
     }
 }
 ```
-
 但首先，需要初始化一个特别的 `URLSession` 来负责调用代理：
-
 ```swift
 lazy var downloadsSession: URLSession = {
     let configuration = URLSessionConfiguration.default
     return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
 }()
 ```
-
 这里使用默认配置初始化网络任务，并指定代理，这样便可以接收 `URLSession` 的代理事件，用于监听任务进度。将代理队列设置为 `nil` 会导致创建一个串行队列，以执行委派方法和处理程序的所有调用。
 
 然后再使用 downloadsSession 发起一个下载任务：
-
 ```swift
 var downloadTask: URLSessionDownloadTask = downloadsSession.downloadTask(with: downloadUrl)
 downloadTask.resume()
 ```
-
 当下载任务执行完后，之前提及过的 `urlSession(_:downloadTask:didFinishDownloadingTo:)` 方法会被调用，在这个方法中，所下载的文件将被存储在一个临时区域，如果需要长久使用这个文件的话，需要将它放入应用沙盒中：
-
 ```swift
 func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) { 
     let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -164,25 +151,19 @@ func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, did
     ......
 }   
 ```
-
 在这段代码中，首先按照所下载文件在服务器中的路径，在本地创建相同的路径，并清空。然后再将文件从临时的储存位置移动到先前创建好的地址。
 
 ### 暂停，继续和取消下载任务
-
 取消下载任务的方式十分简单，直接在 `downloadTask` 后调用 `.cancle()` 方法即可。
 
 暂停下载任务和取消下载任务很相似，只是需要在取消下载任务时，保存好已下载的数据：
-
-
 ```swift
 downloadTask?.cancel(byProducingResumeData: { data in
     let downloadedData = data
     ......
 })   
 ```
-
 继续下载任务时，如果存在已下载的数据则继续下载，如果没有，则重新开始下载：
-
 ```swift
 if let resumeData = downloadedData {
     downloadTask = downloadsSession.downloadTask(withResumeData: resumeData)
@@ -192,13 +173,10 @@ if let resumeData = downloadedData {
     
 downloadTask.resume()
 ```
-
 别忘记，无论哪种情况发起何种请求，都需要调用 `resume()` 方法。
 
 ### 获取下载任进度
-
 显示下载进度可以有效的提升用户体验：
-
 ```swift
 func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
     let totalSize = ByteCountFormatter.string(fromByteCount: totalBytesExpectedToWrite, countStyle: .file)
@@ -206,22 +184,17 @@ func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, did
     ......
 }
 ```
-
 ### 在后台执行下载任务
-
 启用后台下载之后，即便是应用在后台或崩溃，除非用户手动终止应用，否则下载仍会继续，这非常适用于大型文件的下载。这是由于当程序没有执行的时候，系统在应用外运行一个单独的守护程序来管理后台传输任务，并在下载任务时将适当的代理消息发送到应用程序。如果应用在这期间被终止，下载任务也将在后台继续执行。任务完成后，守护程序将在后台重新启动应用。重新启动的应用程序将重新创建后台会话，以接收相关的完成代理消息，并执行任何所需的操作，例如将下载的文件保存到磁盘。
 
 想要实现此功能，需要在初始化下载任务时，就指定下载任务的模式：
-
 ```swift
 lazy var downloadsSession: URLSession = {
     let configuration = URLSessionConfiguration.background(withIdentifier: "backgroundSessionConfiguration")
     return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
 }()
 ```
-
 如之前所说，当后台下载任务完成后，应用将会重启，这时候需要一个代理方法来执行这个事件，可在 `AppDelegate.swift` 文件执行 `application(_:handleEventsForBackgroundURLSession:)` 这个方法：
-
 ```swift
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var backgroundSessionCompletionHandler: (() -> Void)?
@@ -231,9 +204,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 ```
-
 最后再在 `URLSessionDelegate` 当任务完成的代理方法中执行具体的操作：
-
 ```swift
 func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
     DispatchQueue.main.async {
@@ -250,7 +221,6 @@ func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
 ## 开始上传
 
 发起上传任务和发起 POST 请求很类似，只是将需要上传的文件或数据放在上传任务初始化时。
-
 ```swift
 func postRequest() {
     ......

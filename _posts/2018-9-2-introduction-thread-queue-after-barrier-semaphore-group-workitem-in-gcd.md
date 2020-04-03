@@ -209,7 +209,6 @@ queue.async() {
     group.leave()
 }
 ```
-
 两种加入方式在对任务处理的特性上是没有区别的，只是便利之处不同。如果任务所在的队列是自己创建或引用的系统队列，那么直接使用第一种方式直接加入即可。如果任务是由系统或第三方的 API 创建的，由于无法获取到对应的队列，只能使用第二种方式将任务加入组内。
 
 ### 任务组通知
@@ -228,7 +227,6 @@ print("After all tasks done.")
 ```
 
 `.wait()`方法中还可以指定具体的时间，如果在这个时间之内，`group.wait()`之前的代码已经执行完，那就阻塞线程，等到时间结束再执行后面的代码；如果在这个时间之内，`group.wait()`之前的代码还没有执行完，那也开始执行后面的代码，同时前面的代码，继续执行。
-
 ```swift
 let timeout = DispatchTime.now() + 2.0
 group.wait(timeout: timeout)
@@ -242,13 +240,11 @@ group.wait(timeout: timeout)
 在队列和任务组中，任务实际上是被封装为一个任务对象。任务封装最直接的好处就是可以取消任务。
 
 ### 创建任务
-
 ```swift
 let workItem = DispatchWorkItem(qos: .default, flags: [DispatchWorkItemFlags()]) {
     print("Start task")
 }
 ```
-
 DispatchWorkItemFlags，它有两组静态属性:
 * 执行情况
   * `.assignCurrentContext`: 为闭包分配创建闭包时的执行上下文属性。

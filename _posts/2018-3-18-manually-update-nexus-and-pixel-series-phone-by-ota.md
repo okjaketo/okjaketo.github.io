@@ -51,23 +51,29 @@ OTA 全称 Over-the-air programming，意为空中编程，是一种为设备分
 1. 确认设备的确没有收到 OTA 更新推送，通过转到**设置 > 关于手机 > 系统更新**，应该显示“您的系统已是最新（Your system is up to date）”。
 
 2. 在命令行中运行这条语句：
-```
+
+{% highlight %}
 adb reboot recovery
-```
+{% endhighlight %}
+
 现在设备会处于恢复模式（Recovery mode），屏幕上应该显示带有红色感叹号的 Android 图标或机器人。
 
 3. 长按**电源键**，然后按一下**音量 + 键**，将出现一个菜单。使用音量按键上下选择，电源键确认，选择**从 ADB 应用更新（ Apply update from ADB）**。
 
 4. 在命令行中运行这条语句：
-```
+
+{% highlight %}
 adb devices
-```
+{% endhighlight %}
+
 然后在命令行中，您的设备名称旁边会显示“ sideload ”。
 
 5. 在命令行中运行这条语句：
-```
+
+{% highlight %}
 adb sideload ota_file.zip
-```
+{% endhighlight %}
+
 更新完成后，选择**立即重启（Reboot system now）**。
 
 为了安全起见，当设备不需要更新时，应该禁用 USB 调试。

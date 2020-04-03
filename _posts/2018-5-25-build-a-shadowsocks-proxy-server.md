@@ -18,13 +18,11 @@ image: '/images/搭建 Shadowsocks 代理服务器.jpg'
 [**Vultr**](https://www.vultr.com/) ，这是一家 VPS 服务器提供商（VPS 的提供商还有很多，朋友可以根据自己的需求去寻找），可以用支付宝付款。下面我也将以 Vultr 为例，介绍如合自建翻墙服务器。
 
 ### 1. 创建账户
-
 下图是 Vultr 官网的首页，在图中红色方框内分别填入邮箱地址和密码（密码必须包含数字，和大、小写字母，以及位数须在十位以上），在点击 **Create Account**（创建账户），账户就创建完成了。
 
 ![1](/images/build-a-server-for-cross-the-china-great-firewall/1.png)
 
 ### 2. 选择支付方式
-
 点击下图中红色方框中的 **Alipay**（支付宝）以选择使用支付宝支付。
 
 ![2](/images/build-a-server-for-cross-the-china-great-firewall/2.png)
@@ -36,7 +34,6 @@ image: '/images/搭建 Shadowsocks 代理服务器.jpg'
 我们在 Vultr 上购买服务器时，Vultr 会告诉我们这个服务器每月需要多少钱。比如我们购买洛杉矶服务器，2.5 美元 / 月，当我们开始使用我们所购买的服务器时，Vultr 不会从我们账户里直接扣掉 2.5 美元，而是会将 2.5 美元 / 月转换成 0.003472 美元 / 小时，这样的话方便我们随时更换或停止服务器，而不会造成浪费钱。
 
 ### 3. 购买服务器
-
 点图下图中红色方框内的加号按钮开始选择购买服务器。
 
 ![4](/images/build-a-server-for-cross-the-china-great-firewall/4.jpeg)
@@ -56,7 +53,6 @@ image: '/images/搭建 Shadowsocks 代理服务器.jpg'
 ![7](/images/build-a-server-for-cross-the-china-great-firewall/7.png)
 
 ### 4. 查看服务器信息
-
 购买成功之后就可以看到在自己服务器列表里，有了我们刚刚购买的服务器，点击刚刚购买服务器进入到服务器的详情信息。
 
 ![8](/images/build-a-server-for-cross-the-china-great-firewall/8.png)
@@ -73,7 +69,6 @@ image: '/images/搭建 Shadowsocks 代理服务器.jpg'
 若是在 Mac 或是 Linux 平台上，可跳过接下来的 1，2 两步，直接在系统终端中输入 `ssh root@xxx.xxx.xxx.xxx（此为你服务器的 IP 地址）`，然后等待提示密码输入，在输入密码后，即可从接下来的第 3 步开始署虚拟服务器。
 
 ### 1. 下载用于部署 VPS 的软件
-
 在这里我们使用 [**Xshell**](https://www.netsarang.com/download/main.html) 这款软件，当然也可以使用其他软件进行部署。首先来到 Xshell 的官方下载页面。点击如下图所示的红色方框中的 **Download**（下载）。
 
 ![10](/images/build-a-server-for-cross-the-china-great-firewall/10.jpeg)
@@ -83,7 +78,6 @@ image: '/images/搭建 Shadowsocks 代理服务器.jpg'
 ![11](/images/build-a-server-for-cross-the-china-great-firewall/11.jpeg)
 
 ### 2. 使用 Xshell 连接服务器
-
 安装好后打开 Xshell ，点击如下图所示的红色方框中的 **New**（快捷键 Alt + N ） 按钮，会打开如同所示的界面。红色方框中的 **Name**（名称）选项可以任意填。现在将我们所购买的服务器的详情信息里的 IP 地址复制到 **Host** 的输入框中。
 
 ![12](/images/build-a-server-for-cross-the-china-great-firewall/12.jpeg)
@@ -105,7 +99,6 @@ image: '/images/搭建 Shadowsocks 代理服务器.jpg'
 ![16](/images/build-a-server-for-cross-the-china-great-firewall/16.jpeg)
 
 ### 3. 使用命令行部署 VPS
-
 在这里我们使用秋水逸冰大神的 [Shadowsocks 一键安装脚本](https://teddysun.com/486.html)，将下列三条语句分别复制粘贴到（在命令行中点击鼠标右键，选择 **Paste** 进行粘贴） Xshell 的命令行中，再按下键盘上的 **Enter** （回车键）按钮，一条语句执行完后在复制另一条进去。
 
 {% highlight %}
@@ -140,8 +133,7 @@ chmod +x shadowsocks-all.sh
 
 ![21](/images/build-a-server-for-cross-the-china-great-firewall/21.jpeg)
 
-#### 4. 重启服务器以启用 Shadowsocks 服务端
-
+### 4. 重启服务器以启用 Shadowsocks 服务端
 回到 Vultr 的服务器页面，选中我们刚刚所部署好的服务器，点击 **Restart**（重启）按钮重启我们所购买的服务器，现在我们可以将刚才在 Xshell 中所填写的 IP 、端口、密码、加密方式填入 Shadowsocks 客户端中开始使用。
 
 ![22](/images/build-a-server-for-cross-the-china-great-firewall/22.png)

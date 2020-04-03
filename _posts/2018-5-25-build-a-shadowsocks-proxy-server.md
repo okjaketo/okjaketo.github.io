@@ -109,9 +109,11 @@ image: '/images/搭建 Shadowsocks 代理服务器.jpg'
 在这里我们使用秋水逸冰大神的 [Shadowsocks 一键安装脚本](https://teddysun.com/486.html)，将下列三条语句分别复制粘贴到（在命令行中点击鼠标右键，选择 **Paste** 进行粘贴） Xshell 的命令行中，再按下键盘上的 **Enter** （回车键）按钮，一条语句执行完后在复制另一条进去。
 ```
 wget — no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
-
+```
+```
 chmod +x shadowsocks-all.sh
-
+```
+```
 ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 ```
 
@@ -149,9 +151,11 @@ chmod +x shadowsocks-all.sh
 
 ```
 Wget–no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh
-
+```
+```
 chmod +x bbr.sh
-
+```
+```
 ./bbr.sh
 ```
 

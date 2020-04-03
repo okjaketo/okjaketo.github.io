@@ -69,11 +69,9 @@ adb devices
 然后在命令行中，您的设备名称旁边会显示“ sideload ”。
 
 5. 在命令行中运行这条语句：
-
 {% highlight js %}
 adb sideload ota_file.zip
 {% endhighlight %}
-
 更新完成后，选择**立即重启（Reboot system now）**。
 
 为了安全起见，当设备不需要更新时，应该禁用 USB 调试。

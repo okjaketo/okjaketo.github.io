@@ -17,7 +17,7 @@ youtube:     'https://www.youtube.com/channel/UCY4dkiRPDkuT2Z05Pha2GVw'
 
 markdown:  kramdown
 permalink: pretty
-paginate:  5
+paginate:  8
 
 sass:
   style: compressed

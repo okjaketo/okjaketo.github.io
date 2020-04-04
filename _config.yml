@@ -8,6 +8,7 @@
 # Site settings
 title:       木土金王可
 description: ''
+author:      木土金王可
 baseurl:     '' # The subpath of your site, e.g. /blog
 url:         'https://dujinke.com/' # The base hostname & protocol for your site
 email:       'okjaketo@gmail.com'
@@ -25,6 +26,8 @@ sass:
 plugins:
   - jekyll-paginate
   - jekyll/tagging
+  - jekyll-sitemap
+  - jekyll-feed
 
 include:
   - _pages

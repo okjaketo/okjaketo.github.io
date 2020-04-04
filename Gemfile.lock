@@ -29,9 +29,13 @@ GEM
       rouge (~> 3.0)
       safe_yaml (~> 1.0)
       terminal-table (~> 1.8)
+    jekyll-feed (0.13.0)
+      jekyll (>= 3.7, < 5.0)
     jekyll-paginate (1.1.0)
     jekyll-sass-converter (2.0.1)
       sassc (> 2.0.1, < 3.0)
+    jekyll-sitemap (1.4.0)
+      jekyll (>= 3.7, < 5.0)
     jekyll-tagging (1.1.0)
       nuggets
     jekyll-watch (2.2.1)
@@ -65,8 +69,10 @@ PLATFORMS
 DEPENDENCIES
   bundler
   jekyll (~> 4.0)
+  jekyll-feed
   jekyll-paginate
+  jekyll-sitemap
   jekyll-tagging
 
 BUNDLED WITH
-   1.17.3
+   2.1.2

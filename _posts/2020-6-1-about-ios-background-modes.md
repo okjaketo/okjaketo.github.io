@@ -32,6 +32,7 @@ iOS 的后台任务不仅仅可以让应用在进入后台之后，申请额外�
 
 首先以刷新任务为例，在 AppDelegate.swift 的 application(_:didFinishLaunchingWithOptions:) 代理方法内加入如下代码。
 ```swift
+import BackgroundTasks
 ...
     
 BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.demo.refresh", using: nil) { task in
@@ -65,9 +66,7 @@ BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.demo.refresh", using
 let request = BGAppRefreshTaskRequest(identifier: "com.demo.refresh")
 request.earliestBeginDate = Date(timeIntervalSinceNow: 15 * 60)
         
-do {
-    
-    // 注意：会阻塞主线程
+do {    
     try BGTaskScheduler.shared.submit(request)
     
 } catch {

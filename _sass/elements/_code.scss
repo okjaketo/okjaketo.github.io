@@ -16,6 +16,7 @@ pre {
   line-height: $line-height-medium;
   white-space: pre-wrap;
   display: inline-block;
+  word-break: break-word;
 }
 
 li code,

@@ -31,7 +31,7 @@ iOS 的后台任务不仅仅可以让应用在进入后台之后，申请额外�
 ## 注册后台任务标识
 
 首先以刷新任务为例，在 AppDelegate.swift 的 application(_:didFinishLaunchingWithOptions:) 代理方法内加入如下代码。
-```swift
+```
 import BackgroundTasks
 ...
     
@@ -60,7 +60,7 @@ BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.demo.refresh", using
 ## 提交后台任务请求
 
 同样先以刷新任务为例，在 AppDelegate.swift 的 applicationDidEnterBackground(_:) 代理方法内加入如下代码。
-```swift
+```
 ...
     
 let request = BGAppRefreshTaskRequest(identifier: "com.demo.refresh")

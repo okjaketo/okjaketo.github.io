@@ -49,6 +49,7 @@ BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.demo.refresh", using
 
 ...
 ```
+
 因为是以刷新任务为例，所以在注册回调中需将任务强转为`BGAppRefreshTask`类型，值得注意的是，系统分配的任务时间有限，所以当系统分配的任务时间即将到期，或者系统提前终结任务时调将会调用`refreshAppTask`的`expirationHandler`回调，所以可以将一些处理未完成任务的操作放入这里。
 
 另外，在任务结束后需调用`setTaskCompleted(success: Bool)`方法，以节省系统资源。
@@ -75,6 +76,7 @@ do {
 
 ...
 ```
+
 其中`earliestBeginDate`表示最早开始执行背景任务的时间，可以理解为至少应用进入后台多久之后，才可以执行预定的后台任务，上述代码中为至少应用进入后台十五分钟之后，才可以执行后台任务。
 
 值得注意的有两点，一是在执行`submit`操作时，会阻塞主线程。二是如果需要后台持续刷新，可将此段代码放入注册后台任务标识的回调中。

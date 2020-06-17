@@ -9,22 +9,9 @@ code {
 }
 
 pre {
-  overflow: auto;
-  padding: double($base-spacing-unit);
-  margin-bottom: $base-spacing-unit;
-  font-size: $font-size-medium;
-  line-height: $line-height-medium;
-  white-space: pre-wrap;
   display: inline-block;
-  overflow-wrap: break-word;
   word-wrap: break-word;
-  -ms-word-break: break-all;
   word-break: break-all;
-  word-break: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
 }
 
 li code,

@@ -79,6 +79,18 @@ do {
 
 值得注意的有两点，一是在执行`submit`操作时，会阻塞主线程。二是如果需要后台持续刷新，可将此段代码放入注册后台任务标识的回调中。
 
-数据处理任务的请求也差不多，只是请求类型需要为`BGProcessingTaskRequest`，但是数据处理任务请求有两个额外的属性可设置。一是`requiresNetworkConnectivity`，表示是否需要联网，默认为否。二是`requiresExternalPower`，也就是是否只能在充电时进行，，默认为否。
+数据处理任务的请求也差不多，只是请求类型需要为`BGProcessingTaskRequest`，但是数据处理任务请求有两个额外的属性可设置。一是`requiresNetworkConnectivity`，表示是否需要联网，默认为否。二是`requiresExternalPower`，也就是是否只能在充电时进行，默认为否。
 
 <br/>
+
+## 调试
+
+为了调试，首先需要将应用放入一次后台以提交后台任务请求，再次打开应用并在控制台输入：
+
+> e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"TASK_IDENTIFIER"]
+
+即可模拟执行后台任务；输入：
+
+> e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateExpirationForTaskWithIdentifier:@"TASK_IDENTIFIER"]
+
+即可模拟后台任务时间到期。

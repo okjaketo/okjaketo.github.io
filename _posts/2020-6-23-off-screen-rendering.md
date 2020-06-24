@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 离屏渲染
+title: 当我们谈论离屏渲染时，我们在谈论什么
 image: '/images/Develop.jpg'
 ---
 
-在正式开始之前，先粗略介绍下 iPhone 的屏幕显示原理，这样有助于更好地理解离屏渲染：
+在正式开始之前，先粗略介绍下 iPhone 的屏幕显示原理，这样有助于更好地理解离屏渲染。图像显示到屏幕上，大概会经历以下几个步骤：
 
 1. CPU 告诉 GPU 需要显示的内容
 2. GPU 按照 CPU 的要求，将 Layer 渲染进 Frame Buffer（帧缓冲区）
@@ -40,10 +40,15 @@ image: '/images/Develop.jpg'
 ### 2. `cornerRadius` + `clipsToBounds`（圆角与裁切圆角以外内容）
 在 Layer 被渲染时，其上层 Layer 还没有被渲染，所以无法完成裁切圆角以外内容，所以也需要新建一个 Offscreen Buffer 参与渲染。
 
-使用`UIBezierPath`与`CAShapeLayer`可以高效率地设置圆角。
+解决办法是使用`UIBezierPath`与`CAShapeLayer`设置圆角。
 
 ### 3. `group opacity`（群组透明）、`mask`（遮罩）、`UIBlurEffect`（高斯模糊）与`allowsEdgeAntialiasing`（抗锯齿）
 在所有 Layer 的渲染完成后，再应用透明度，与分别为每层 Layer 应用透明度再渲染得到的结果是不同的，与透明度相关以及抗锯齿的渲染都无可避免的需要一个 Offscreen Buffer 参与渲染。
 
 ### 4. `shouldRasterize`（栅格化）
 `shouldRasterize`相当于主动进行离屏渲染，目的是为了将渲染结果保存在一起，使下一帧可以直接复用，避免重复渲染。
+
+<br/>
+
+## 后续
+关于离屏渲染还有很多细节，本文并没有提及，感兴趣的读者可以从 CPU 渲染与 `shouldRasterize`属性深入研究下去。

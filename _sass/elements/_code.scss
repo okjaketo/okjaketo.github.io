@@ -6,6 +6,9 @@ pre,
 code {
   font-family: $font-monospace;
   background-color: $bg-color-gray;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
 }
 
 pre {

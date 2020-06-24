@@ -87,3 +87,12 @@ do {
 
 ## 调试
 
+为了调试，首先需要将应用放入一次后台以提交后台任务请求，再次打开应用并在控制台输入：
+
+> e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"TASK_IDENTIFIER"]
+
+即可模拟执行后台任务；输入：
+
+> e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateExpirationForTaskWithIdentifier:@"TASK_IDENTIFIER"]
+
+即可模拟后台任务时间到期。

@@ -5,6 +5,7 @@
 blockquote {
   padding-left: $base-spacing-unit;
   border-left: 3px solid $color-gray;
-  white-space: normal;
+  white-space: pre-wrap;
   word-break: break-all;
+  word-wrap: break-word;
 }

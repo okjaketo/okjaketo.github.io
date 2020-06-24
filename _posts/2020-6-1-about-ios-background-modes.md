@@ -32,7 +32,6 @@ image: '/images/Develop.jpg'
 
 首先以刷新任务为例，在 AppDelegate.swift 的 application(_:didFinishLaunchingWithOptions:) 代理方法内加入如下代码。
 ```swift
- 
 import BackgroundTasks
 ...
     
@@ -63,7 +62,6 @@ BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.demo.refresh", using
 
 同样先以刷新任务为例，在 AppDelegate.swift 的 applicationDidEnterBackground(_:) 代理方法内加入如下代码。
 ```swift
- 
 ...
     
 let request = BGAppRefreshTaskRequest(identifier: "com.demo.refresh")
@@ -89,12 +87,3 @@ do {
 
 ## 调试
 
-为了调试，首先需要将应用放入一次后台以提交后台任务请求，再次打开应用并在控制台输入：
-
-> e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"TASK_IDENTIFIER"]
-
-即可模拟执行后台任务；输入：
-
-> e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateExpirationForTaskWithIdentifier:@"TASK_IDENTIFIER"]
-
-即可模拟后台任务时间到期。

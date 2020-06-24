@@ -32,6 +32,7 @@ image: '/images/Develop.jpg'
 
 首先以刷新任务为例，在 AppDelegate.swift 的 application(_:didFinishLaunchingWithOptions:) 代理方法内加入如下代码。
 ```swift
+ 
 import BackgroundTasks
 ...
     
@@ -62,6 +63,7 @@ BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.demo.refresh", using
 
 同样先以刷新任务为例，在 AppDelegate.swift 的 applicationDidEnterBackground(_:) 代理方法内加入如下代码。
 ```swift
+ 
 ...
     
 let request = BGAppRefreshTaskRequest(identifier: "com.demo.refresh")

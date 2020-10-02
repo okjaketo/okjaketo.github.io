@@ -79,5 +79,5 @@ image: '/images/我独立开发的第一个应用：“行动日”.jpg'
 ## 最后
 在未来的版本中，我会陆续增加对 iCloud 的支持，对 Apple Watch 的支持，以及运用其他我的所学知识继续完善行动日。无论您对行动日有想法、建议或是疑问，还是想与我讨论学习，都欢迎与我联系。希望我这点微不足道的开发能力能助你驯化时间。
 
-行动日在 [App Store](https://itunes.apple.com/cn/app/tododay-reminders-tasks-list/id1409990634?ls=1&mt=8) 上售价为 12 元，有兴趣可以尝试一下。
+行动日在 [App Store](https://itunes.apple.com/cn/app/tododay-reminders-tasks-list/id1409990634?ls=1&mt=8) 已上架，有兴趣可以尝试一下。
 

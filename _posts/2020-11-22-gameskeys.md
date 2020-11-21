@@ -1,8 +1,10 @@
 ---
 layout: post
 title: “生或死”被 GamesKeys 文章收录
-image: '/images/GamesKeys.png'
+image: '/images/G.png'
 ---
+
+<br/>
 
 ## GamesKeys 文章
 [Underrated Simulation Games To Play on iOS](https://gameskeys.net/underrated-simulation-games-to-play-on-ios/)
